@@ -11,6 +11,6 @@ I'm a software engineer in Taiwan.
 - [Yapp](https://github.com/gnituy18/yapp) - A simple way to create apps
 - Sweets
 
-## [Thoughts](/thoughts/)
-## [Tools](/tools/)
+## [Thoughts](/thoughts)
+## [Tools](/tools)
 ## [Notes](/notes/)
