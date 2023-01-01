@@ -108,7 +108,7 @@ fn main() {
 
 ## 5. Data Types
 
-### 5.1 Integer
+### 5.1 Integer (scalar type)
 ```rust
 fn main() {
     // Signed
@@ -141,7 +141,7 @@ fn main() {
 }
 ```
 
-### 5.2 Floating Point
+### 5.2 Floating Point (scalar type)
 ```rust
 fn main() {
     let x = 2.0; // `f64`
@@ -149,7 +149,7 @@ fn main() {
 }
 ```
 
-### 5.3 Boolean
+### 5.3 Boolean (scalar type)
 ```rust
 fn main() {
     let t = true;
@@ -157,7 +157,7 @@ fn main() {
 }
 ```
 
-### 5.4 Character
+### 5.4 Character (scalar type)
 ```rust
 fn main() {
     // Use single quote for character literal.
@@ -169,7 +169,7 @@ fn main() {
 }
 ```
 
-### 5.5 Tuple
+### 5.5 Tuple (compound types)
 ```rust
 fn main() {
     // Cannot grow or shrink in size.
@@ -183,7 +183,7 @@ fn main() {
 }
 ```
 
-### 5.6 Array
+### 5.6 Array (compound types)
 ```rust
 fn main() {
     // Arrays are fix length, allocated on the stack.
@@ -213,7 +213,7 @@ fn another_function(x: i32, unit_label: char) -> i32 {
 
 ## 7. Statements and Expressions
 
-Statements are instructions that perform some action and do not return a value.
+**Statements** are instructions that perform some action and do not return a value.
 ```rust
 // statement
 let x = 1 
@@ -222,38 +222,38 @@ fn foo() {
 }
 ```
 
-- Expressions evaluate to a resultant value
+**Expressions** evaluate to a resultant value
 ```rust
 fn main() {
     let y = {
         let x = 3;
+		// expressions doesn't have a `;` at the end.
+        // Adding a ';' turn a expression into a statement.
         x + 1
     };
 
     println!("The value of y is: {y}"); // 4
 }
 ```
-- `x + 1` is an expression
-- expression does not have a ';' at the end.
-- Adding a ';' turn a expression into a statement.
 
 ## 8. Comments
 ```rust
-// Comments here
-// Comments here
+// Comments here.
+// Comments here.
 fn main() {
     // Comments here
-    let lucky_number = 7; // Comments here
+    let foo = "bar"; // Comments here.
 }
 ```
 
 ## 9. Control Flow
 
-### if
+### 9.1 if (expression)
 ```rust
 fn main() {
     let number = 6;
 
+    // condition must be a `bool`.
     if number % 4 == 0 {
         println!("number is divisible by 4");
     } else if number % 3 == 0 {
@@ -265,18 +265,18 @@ fn main() {
     }
 
     let number = if condition { 5 } else { 6 };
-    let number = if condition { 5 } else { "six" }; // compile error
+	// It's a compile error because the return value must have the same types.
+    let number = if condition { 5 } else { "six" }; 
 }
 
 ```
-- condition must be a `bool`
-- `if` is an expression, and must have a single type
 
-### loop
+### 9.2 loop (expression)
 ```rust
 fn main() {
     let mut counter = 0;
 
+    // You can assign label for inner loop to `break` or `continue`.
     let result = 'label: loop {
         counter += 1;
 
@@ -286,17 +286,17 @@ fn main() {
 
 		continue 'label
     };
+
+	// `break;` equals `break ();`.
 }
 ```
-- `loop` is an expression
-- you can assign label for inner loop to `break` or `continue`
-- `break;` equals `break ();`
 
-### while
+### 9.3 while (expression but only return `()`) 
 ```rust
 fn main() {
     let mut number = 3;
 
+    // No break value in `while`.
     while number != 0 {
         println!("{number}!");
 
@@ -306,13 +306,14 @@ fn main() {
     println!("LIFTOFF!!!");
 }
 ```
-- no break value in while
 
-### for
+### 9.4 for (expression but only return `()`)
 ```rust
 fn main() {
     let a = [10, 20, 30, 40, 50];
 
+    
+    // No break value in `for`.
     for element in a {
         println!("the value is: {element}");
     }
@@ -322,7 +323,6 @@ fn main() {
     }
 }
 ```
-- no break value in for
 
 ## Ownership
 
