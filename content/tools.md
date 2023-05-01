@@ -9,10 +9,10 @@ This is no doubt the most important tool I've ever owned. You are contently maki
 
 
 ## Elon Musk's engineering 5 step process
-> 1. Make the requirement less dumb
-> 2. Delete the part or process
-> 3. Simplify of optimize
-> 4. Accelerate cycle time
+> 1. Make Requirements Less Dumb
+> 2. Delete Part or Process
+> 3. Simplify or Optimize
+> 4. Accelerate Cycle Time
 > 5. Automate
 
 ## Softwares
