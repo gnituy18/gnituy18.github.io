@@ -39,12 +39,12 @@ I buy things that have long-term value.
     肌力: &每週3次
   穿著: &符合你價值且好看的品牌
     帽子: Tesla, SpaceX
-    上衣: Muji?, Patagonia
+    上衣: Uniqlo
     褲子: Gramicci
-    內褲: Muji
-    襪子: Muji
+    內褲: Uniqlo, Muji
+    襪子: Uniqlo, Muji
     鞋子: Birkenstock
-    外套: Arcteryx
+    外套: 
     背包: Goruck
 學習: &選擇一生受用且喜愛的
 
