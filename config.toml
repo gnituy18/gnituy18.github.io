@@ -1,8 +1,0 @@
-baseURL = 'https://www.hsuyuting.com/'
-languageCode = 'zh-TW'
-title = '許煜廷'
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
