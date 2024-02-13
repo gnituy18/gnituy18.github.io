@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		
+		許煜廷
+		
+	</title>
+	<link rel="stylesheet" href="/styles.css">
+	<link rel="stylesheet" href="/syntax.css">
+	<link rel="icon"
+		href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='3' y='85' font-size='95'>📓</text></svg>" />
+</head>
+
+<body>
+	
+<h1>Rust</h1>
+<ul>
+<li><a href="https://doc.rust-lang.org/book">https://doc.rust-lang.org/book</a></li>
+</ul>
+<h2 id="1-rustup">1. <code>rustup</code></h2>
+<p><code>rustup</code> is a command line tool for managing Rust versions and associated tools.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl --proto <span style="color:#e6db74">&#39;=https&#39;</span> --tlsv1.3 https://sh.rustup.rs -sSf | sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># MacOS</span>
+</span></span><span style="display:flex;"><span>$ xcode-select --install
+</span></span></code></pre></div><h2 id="2-hello-world">2. Hello, World!</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Use an `_` to separate multiple words in your filename.</span>
+</span></span><span style="display:flex;"><span>$ touch hello_world.rs
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// hello_world.rs
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// `main` function is the entry point of every Rust program.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// `println!` calls a Rust macro. 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// End the line with a `;`.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    println!(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rustc hello_world.rs
+</span></span><span style="display:flex;"><span>$ ./hello_world
+</span></span><span style="display:flex;"><span>Hello, World!
+</span></span></code></pre></div><h2 id="3-cargo">3. <code>cargo</code></h2>
+<p><code>cargo</code> is Rust’s build system and package manager</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create a new cargo project.</span>
+</span></span><span style="display:flex;"><span>$ cargo new hello_cargo
+</span></span><span style="display:flex;"><span>$ cd hello_cargo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check if the project is executable.</span>
+</span></span><span style="display:flex;"><span>$ cargo check
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run the project without binary output.</span>
+</span></span><span style="display:flex;"><span>$ cargo run
+</span></span><span style="display:flex;"><span>Hello, world!
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Build the project and output a binary output.</span>
+</span></span><span style="display:flex;"><span>$ cargo build
+</span></span><span style="display:flex;"><span>$ ./target/debug/hello_cargo
+</span></span><span style="display:flex;"><span>Hello, world!
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Build the project for release.</span>
+</span></span><span style="display:flex;"><span>$ cargo build --release
+</span></span><span style="display:flex;"><span>$ ./target/release/hello_cargo
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#75715e"># Cargo.toml</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">package</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;hello_cargo&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">version</span> = <span style="color:#e6db74">&#34;0.1.0&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">edition</span> = <span style="color:#e6db74">&#34;2021&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">dependencies</span>]
+</span></span></code></pre></div><h2 id="4-variables-and-constants">4. Variables and Constants</h2>
+<h3 id="41-mutability">4.1 Mutability</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// `foo` is immutable by default.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> foo <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create a mutable variable.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> bar <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>    bar <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Use uppercase with underscores between words for constants.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// Compiler could do a limited set of operations at compile time.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">THREE_HOURS_IN_SECONDS</span>: <span style="color:#66d9ef">u32</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="42-shadowing">4.2 Shadowing</h3>
+<p>It is useful to reuse simpler variable names instead of creating new ones.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> foo <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// The second variable shadows the first. 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> foo <span style="color:#f92672">=</span> foo <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> foo <span style="color:#f92672">=</span> foo <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>; <span style="color:#75715e">// foo is 12
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// The scope ends.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// `foo` is 6
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> bar <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;   &#34;</span>; <span style="color:#75715e">// `bar` is str &#34;   &#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> bar <span style="color:#f92672">=</span> bar.len(); <span style="color:#75715e">// `bar` is int 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h2 id="5-data-types">5. Data Types</h2>
+<h3 id="51-integer-scalar-type">5.1 Integer (scalar type)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Signed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> num <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>; <span style="color:#75715e">// the default type is `i32`.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> num_8: <span style="color:#66d9ef">i8</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> num_16: <span style="color:#66d9ef">i16</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> num_32: <span style="color:#66d9ef">i32</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> num_64: <span style="color:#66d9ef">i64</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> num_128: <span style="color:#66d9ef">i128</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// It depends on the architecture of your computer.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> num_size: <span style="color:#66d9ef">isize</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Unsigned
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> un_num_8: <span style="color:#66d9ef">u8</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> un_num_16: <span style="color:#66d9ef">u16</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> un_num_32: <span style="color:#66d9ef">u32</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> un_num_64: <span style="color:#66d9ef">u64</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> un_num_128: <span style="color:#66d9ef">u128</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// It depends on the architecture of your computer.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> un_num_size: <span style="color:#66d9ef">usize</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Literals
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// You can put `_` any where in a literal.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> decimal <span style="color:#f92672">=</span> <span style="color:#ae81ff">123_456</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> decimal_u32 <span style="color:#f92672">=</span> <span style="color:#ae81ff">123_456</span><span style="color:#66d9ef">u32</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> hex <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xabc</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> octal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x123</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> binary <span style="color:#f92672">=</span> <span style="color:#ae81ff">0b1111_0000</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> by <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;A&#39;</span>; <span style="color:#75715e">// The type must be `u8`.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="52-floating-point-scalar-type">5.2 Floating Point (scalar type)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.0</span>; <span style="color:#75715e">// `f64`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> y: <span style="color:#66d9ef">f32</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.0</span>; <span style="color:#75715e">// `f32`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="53-boolean-scalar-type">5.3 Boolean (scalar type)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> t <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> f: <span style="color:#66d9ef">bool</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="54-character-scalar-type">5.4 Character (scalar type)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Use single quote for character literal.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// Able to store unicode.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 4 bytes per character.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;z&#39;</span>; 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> z: <span style="color:#66d9ef">char</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ℤ&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> heart_eyed_cat <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;😻&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="55-tuple-compound-types">5.5 Tuple (compound types)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Cannot grow or shrink in size.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> tup: (<span style="color:#66d9ef">i32</span>, <span style="color:#66d9ef">f64</span>, <span style="color:#66d9ef">u8</span>) <span style="color:#f92672">=</span> (<span style="color:#ae81ff">500</span>, <span style="color:#ae81ff">6.4</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> (x, y, z) <span style="color:#f92672">=</span> tup;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> first <span style="color:#f92672">=</span> tup.<span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// `unit` is tuple with 0 values.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// A function that doesn&#39;t have `return` will automatically return `unit`.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> u: () <span style="color:#f92672">=</span> ()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="56-array-compound-types">5.6 Array (compound types)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Arrays are fix length, allocated on the stack.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>];
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> b: [<span style="color:#66d9ef">i32</span>; <span style="color:#ae81ff">5</span>] <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>];
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> c: [<span style="color:#ae81ff">3</span>; <span style="color:#ae81ff">5</span>]; <span style="color:#75715e">// [3, 3, 3, 3, 3]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> months <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;January&#34;</span>, <span style="color:#e6db74">&#34;February&#34;</span>, <span style="color:#e6db74">&#34;March&#34;</span>, <span style="color:#e6db74">&#34;April&#34;</span>, <span style="color:#e6db74">&#34;May&#34;</span>, <span style="color:#e6db74">&#34;June&#34;</span>, <span style="color:#e6db74">&#34;July&#34;</span>, <span style="color:#e6db74">&#34;August&#34;</span>, <span style="color:#e6db74">&#34;September&#34;</span>, <span style="color:#e6db74">&#34;October&#34;</span>, <span style="color:#e6db74">&#34;November&#34;</span>, <span style="color:#e6db74">&#34;December&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> d <span style="color:#f92672">=</span> a[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="6-function">6. Function</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;Hello, world!&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Use snake case style.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    another_function(<span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;c&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// You can define the function in any order.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">another_function</span>(x: <span style="color:#66d9ef">i32</span>, unit_label: <span style="color:#66d9ef">char</span>) -&gt; <span style="color:#66d9ef">i32</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="7-statements-and-expressions">7. Statements and Expressions</h2>
+<p><strong>Statements</strong> are instructions that perform some action and do not return a value.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// statement
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">foo</span>() {
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Expressions</strong> evaluate to a resultant value</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> y <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// expressions doesn&#39;t have a `;` at the end.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// Adding a &#39;;&#39; turn a expression into a statement.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        x <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;The value of y is: </span><span style="color:#e6db74">{y}</span><span style="color:#e6db74">&#34;</span>); <span style="color:#75715e">// 4
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h2 id="8-comments">8. Comments</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// Comments here.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Comments here.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Comments here
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> foo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bar&#34;</span>; <span style="color:#75715e">// Comments here.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h2 id="9-control-flow">9. Control Flow</h2>
+<h3 id="91-if-expression">9.1 if (expression)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> number <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// condition must be a `bool`.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> number <span style="color:#f92672">%</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>        println!(<span style="color:#e6db74">&#34;number is divisible by 4&#34;</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> number <span style="color:#f92672">%</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>        println!(<span style="color:#e6db74">&#34;number is divisible by 3&#34;</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> number <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>        println!(<span style="color:#e6db74">&#34;number is divisible by 2&#34;</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        println!(<span style="color:#e6db74">&#34;number is not divisible by 4, 3, or 2&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> number <span style="color:#f92672">=</span> <span style="color:#66d9ef">if</span> condition { <span style="color:#ae81ff">5</span> } <span style="color:#66d9ef">else</span> { <span style="color:#ae81ff">6</span> };
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// It&#39;s a compile error because the return value must have the same types.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> number <span style="color:#f92672">=</span> <span style="color:#66d9ef">if</span> condition { <span style="color:#ae81ff">5</span> } <span style="color:#66d9ef">else</span> { <span style="color:#e6db74">&#34;six&#34;</span> }; 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="92-loop-expression">9.2 loop (expression)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> counter <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// You can assign label for inner loop to `break` or `continue`.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> result <span style="color:#f92672">=</span> <span style="color:#a6e22e">&#39;label</span>: <span style="color:#a6e22e">loop</span> {
+</span></span><span style="display:flex;"><span>        counter <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> counter <span style="color:#f92672">==</span> <span style="color:#ae81ff">10</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span> &#39;label counter <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">continue</span> &#39;label
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// `break;` equals `break ();`.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="93-while-expression-but-only-return-">9.3 while (expression but only return <code>()</code>)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> number <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// No break value in `while`.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> number <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>        println!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{number}</span><span style="color:#e6db74">!&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        number <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;LIFTOFF!!!&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="94-for-expression-but-only-return-">9.4 for (expression but only return <code>()</code>)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">50</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// No break value in `for`.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> element <span style="color:#66d9ef">in</span> a {
+</span></span><span style="display:flex;"><span>        println!(<span style="color:#e6db74">&#34;the value is: </span><span style="color:#e6db74">{element}</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> number <span style="color:#66d9ef">in</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">4</span>).rev() {
+</span></span><span style="display:flex;"><span>        println!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{number}</span><span style="color:#e6db74">!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="ownership">Ownership</h2>
+<ul>
+<li>Each value in Rust has an owner.</li>
+<li>There can only be one owner at a time.</li>
+<li>When the owner goes out of scope, the value will be dropped.</li>
+</ul>
+<h3 id="variable-scope-and-memory-allocation">Variable Scope and Memory Allocation</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    {  
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// foo is valid after this line
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">let</span> foo <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;Hello, world!&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// move occurs because `foo` has type `String`, which does not implement the `Copy` trait
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// foo is no longer usable until reasign with value
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">let</span> bar <span style="color:#f92672">=</span> foo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> baz <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// direct copy baz to quz
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">let</span> qux <span style="color:#f92672">=</span> baz
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// baz is still abailable here
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// this scope is now over and call drop(bar)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">// `foo` is not the owner of the string so it doesn&#39;t need to be released
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">// `baz`, `quz` don&#39;t need to be released because it&#39;s value is not in heap
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><code>String</code> implement the <code>Drop</code> trait.</li>
+<li>scalar values or nothing that requires allocation or is some form of resource can implement <code>Copy</code>. Tuples, if they only contain types that also implement <code>Copy</code></li>
+</ul>
+
+
+</body>
+
+</html>

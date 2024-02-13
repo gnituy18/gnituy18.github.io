@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on 許煜廷</title>
+    <link>https://www.hsuyuting.com/notes/</link>
+    <description>Recent content in Notes on 許煜廷</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <atom:link href="https://www.hsuyuting.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithms</title>
+      <link>https://www.hsuyuting.com/notes/algorithms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.hsuyuting.com/notes/algorithms/</guid>
+      <description>What is Algorithm? An algorithm is a sequence of computational steps that solves a well-defined computational problem. It takes some input and produces some output correctly in a finite amount of time (it halts).&#xA;An instance of a problem consists of the input needed to compute a solution to the problem.&#xA;Model of computation Sorting Reduction Reduction is a technique used in designing algorithms that involves writing an algorithm for one problem, X, using an algorithm for another problem, Y, as a subroutine.</description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://www.hsuyuting.com/notes/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.hsuyuting.com/notes/python/</guid>
+      <description>Data Type string # &amp;#34;a&amp;#34; or &amp;#39;a&amp;#39; &amp;#39;a&amp;#39; &amp;#39;a&amp;#39; &amp;#39;a&amp;#39; # &amp;#39;aaa&amp;#39; &amp;#39;a&amp;#39;*3 # &amp;#39;aaa&amp;#39; &amp;#39;a&amp;#39;+&amp;#39;a&amp;#39;+&amp;#39;a&amp;#39; # &amp;#39;aaa&amp;#39; Input &amp;amp; Output Control Flow </description>
+    </item>
+    <item>
+      <title>Rust</title>
+      <link>https://www.hsuyuting.com/notes/rust/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.hsuyuting.com/notes/rust/</guid>
+      <description>https://doc.rust-lang.org/book 1. rustup rustup is a command line tool for managing Rust versions and associated tools.&#xA;$ curl --proto &amp;#39;=https&amp;#39; --tlsv1.3 https://sh.rustup.rs -sSf | sh # MacOS $ xcode-select --install 2. Hello, World! # Use an `_` to separate multiple words in your filename. $ touch hello_world.rs // hello_world.rs // `main` function is the entry point of every Rust program. fn main() { // `println!` calls a Rust macro. // End the line with a `;`.</description>
+    </item>
+  </channel>
+</rss>
